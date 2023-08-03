@@ -5,6 +5,7 @@ import 'package:android_freelance_7/utils/app_colors.dart';
 import 'package:android_freelance_7/utils/app_strings.dart';
 import 'package:android_freelance_7/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class NumberOfPlayersPicker extends StatefulWidget {
   final int initValue;
@@ -33,7 +34,8 @@ class _NumberOfPlayersPickerState extends State<NumberOfPlayersPicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 4,
+      height: MediaQuery.of(context).size.height / 4 +
+          MediaQuery.of(context).padding.bottom,
       decoration: const BoxDecoration(
         color: AppColors.layer1,
         borderRadius: BorderRadius.only(
@@ -101,6 +103,7 @@ class _NumberOfPlayersPickerState extends State<NumberOfPlayersPicker> {
               ),
             ],
           ),
+          Gap(MediaQuery.of(context).padding.bottom),
         ],
       ),
     );

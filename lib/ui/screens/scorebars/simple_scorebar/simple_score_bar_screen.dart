@@ -49,13 +49,12 @@ class _SimpleScoreBarScreenState extends BaseScreenState<SimpleScoreBarScreen> {
                 _simpleScoreBarController.finishTimer();
               },
             ),
-            const Gap(36),
             if (_simpleScoreBarController.numberOfPlayers == 2)
-              FittedBox(child: _twoTeamScoreBar()),
+              _twoTeamScoreBar(),
             if (_simpleScoreBarController.numberOfPlayers == 3)
-              FittedBox(child: _threeTeamScoreBar()),
+              _threeTeamScoreBar(),
             if (_simpleScoreBarController.numberOfPlayers == 4)
-              FittedBox(child: _forthTeamScore()),
+              _forthTeamScore(),
           ],
         ),
       ),
@@ -63,102 +62,114 @@ class _SimpleScoreBarScreenState extends BaseScreenState<SimpleScoreBarScreen> {
   }
 
   Widget _twoTeamScoreBar() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _horizontalScoreWidget(
-            AppColors.accentPrimary1,
-            false,
-            _simpleScoreBarController.nameTeam1.value,
-            1,
-            _simpleScoreBarController.scoreTeam1),
-        Gap(MediaQuery.of(context).size.height / 10),
-        _controllerWidget(),
-        Gap(MediaQuery.of(context).size.height / 10),
-        _horizontalScoreWidget(
-            AppColors.accentPrimary1,
-            true,
-            _simpleScoreBarController.nameTeam2.value,
-            2,
-            _simpleScoreBarController.scoreTeam2),
-      ],
+    return Expanded(
+      child: FittedBox(
+        child: Column(
+          children: [
+            _horizontalScoreWidget(
+                AppColors.accentPrimary1,
+                false,
+                _simpleScoreBarController.nameTeam1.value,
+                1,
+                _simpleScoreBarController.scoreTeam1),
+            Gap(MediaQuery.of(context).size.height / 8),
+            _controllerWidget(),
+            Gap(MediaQuery.of(context).size.height / 8),
+            _horizontalScoreWidget(
+                AppColors.accentPrimary1,
+                true,
+                _simpleScoreBarController.nameTeam2.value,
+                2,
+                _simpleScoreBarController.scoreTeam2),
+          ],
+        ),
+      ),
     );
   }
 
   Widget _threeTeamScoreBar() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        _horizontalScoreWidget(
-            AppColors.accentPrimary1,
-            false,
-            _simpleScoreBarController.nameTeam1.value,
-            1,
-            _simpleScoreBarController.scoreTeam1),
-        _controllerWidget(),
-        const Gap(24),
-        _horizontalScoreWidget(
-            AppColors.accentPrimary1,
-            false,
-            _simpleScoreBarController.nameTeam2.value,
-            2,
-            _simpleScoreBarController.scoreTeam2),
-        _horizontalScoreWidget(
-            AppColors.tertiaryGreen,
-            false,
-            _simpleScoreBarController.nameTeam3.value,
-            3,
-            _simpleScoreBarController.scoreTeam3),
-      ],
+    return Expanded(
+      child: FittedBox(
+        child: Column(
+          children: [
+            _horizontalScoreWidget(
+                AppColors.accentPrimary1,
+                false,
+                _simpleScoreBarController.nameTeam1.value,
+                1,
+                _simpleScoreBarController.scoreTeam1),
+            const Gap(48),
+            _controllerWidget(),
+            const Gap(48),
+            _horizontalScoreWidget(
+                AppColors.accentPrimary1,
+                false,
+                _simpleScoreBarController.nameTeam2.value,
+                2,
+                _simpleScoreBarController.scoreTeam2),
+            const Gap(48),
+            _horizontalScoreWidget(
+                AppColors.tertiaryGreen,
+                false,
+                _simpleScoreBarController.nameTeam3.value,
+                3,
+                _simpleScoreBarController.scoreTeam3),
+          ],
+        ),
+      ),
     );
   }
 
   Widget _forthTeamScore() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _verticalScoreWidget(
-                  AppColors.accentPrimary1,
-                  _simpleScoreBarController.nameTeam1.value,
-                  1,
-                  _simpleScoreBarController.scoreTeam1),
-              const Gap(16),
-              _verticalScoreWidget(
-                  AppColors.accentSecondary1,
-                  _simpleScoreBarController.nameTeam2.value,
-                  2,
-                  _simpleScoreBarController.scoreTeam2),
-            ],
-          ),
+    return Expanded(
+      child: FittedBox(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _verticalScoreWidget(
+                      AppColors.accentPrimary1,
+                      _simpleScoreBarController.nameTeam1.value,
+                      1,
+                      _simpleScoreBarController.scoreTeam1),
+                  const Gap(16),
+                  _verticalScoreWidget(
+                      AppColors.accentSecondary1,
+                      _simpleScoreBarController.nameTeam2.value,
+                      2,
+                      _simpleScoreBarController.scoreTeam2),
+                ],
+              ),
+            ),
+            const Gap(48),
+            _controllerWidget(),
+            const Gap(48),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _verticalScoreWidget(
+                      AppColors.tertiaryGreen,
+                      _simpleScoreBarController.nameTeam3.value,
+                      3,
+                      _simpleScoreBarController.scoreTeam3),
+                  const Gap(16),
+                  _verticalScoreWidget(
+                      AppColors.tertiaryWhite,
+                      _simpleScoreBarController.nameTeam4.value,
+                      4,
+                      _simpleScoreBarController.scoreTeam4),
+                ],
+              ),
+            ),
+          ],
         ),
-        const Gap(36),
-        _controllerWidget(),
-        const Gap(36),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _verticalScoreWidget(
-                  AppColors.tertiaryGreen,
-                  _simpleScoreBarController.nameTeam3.value,
-                  3,
-                  _simpleScoreBarController.scoreTeam3),
-              const Gap(16),
-              _verticalScoreWidget(
-                  AppColors.tertiaryWhite,
-                  _simpleScoreBarController.nameTeam4.value,
-                  4,
-                  _simpleScoreBarController.scoreTeam4),
-            ],
-          ),
-        ),
-      ],
+      ),
     );
   }
 
