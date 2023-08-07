@@ -1,33 +1,30 @@
 class HistoryModel {
-  int? id;
-  int matchId;
-  String nameOfTeam;
-  String time;
+  int sportType;
+  int timeOfMatch;
+  int scoreTeam1;
+  int scoreTeam2;
 
   HistoryModel({
-    this.id,
-    required this.matchId,
-    required this.nameOfTeam,
-    required this.time,
+    required this.sportType,
+    required this.timeOfMatch,
+    required this.scoreTeam1,
+    required this.scoreTeam2,
   });
 
   factory HistoryModel.fromMap(Map<String, dynamic> json) => HistoryModel(
-        id: json['id'],
-        matchId: json['match_id'],
-        nameOfTeam: json['name_of_team'],
-        time: json['time'],
+        sportType: json['sport_type'],
+        timeOfMatch: json['time_of_match'],
+        scoreTeam1: json['score_team_1'],
+        scoreTeam2: json['score_team_2'],
       );
 
   Map<String, dynamic> toMap() {
     var map = <String, Object?>{
-      'match_id': matchId,
-      'name_of_team': nameOfTeam,
-      'time': time,
+      'sport_type': sportType,
+      'time_of_match': timeOfMatch,
+      'score_team_1': scoreTeam1,
+      'score_team_2': scoreTeam2,
     };
-
-    if (id != null) {
-      map['id'] = id;
-    }
 
     return map;
   }

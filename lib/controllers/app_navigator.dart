@@ -7,6 +7,10 @@ import 'package:android_freelance_7/ui/screens/scorebars/workouts_scorebar/creat
 import 'package:android_freelance_7/ui/screens/scorebars/workouts_scorebar/finished_workout_screen.dart';
 import 'package:android_freelance_7/ui/screens/scorebars/workouts_scorebar/workouts_screen.dart';
 import 'package:android_freelance_7/ui/screens/settings_screen/settings_screen.dart';
+import 'package:android_freelance_7/ui/screens/sport/sport_create_screen/sport_create_screen.dart';
+import 'package:android_freelance_7/ui/screens/sport/sport_game_screen/edit_sport_screen.dart';
+import 'package:android_freelance_7/ui/screens/sport/sport_game_screen/sport_finished_screen.dart';
+import 'package:android_freelance_7/ui/screens/sport/sport_game_screen/sport_game_screen.dart';
 import 'package:android_freelance_7/ui/screens/sport/sport_types_screen/sport_types_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -137,6 +141,61 @@ class AppNavigator {
       context,
       MaterialPageRoute(
         builder: (context) => const FinishedWorkoutScreen(),
+      ),
+    );
+  }
+
+  static void goToSportCreateScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SportCreateScreen(),
+      ),
+    );
+  }
+
+  static void goToSportGameScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SportGameScreen(),
+      ),
+    );
+  }
+
+  static void replaceToSportGameScreen(BuildContext context) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SportGameScreen(),
+      ),
+      ModalRoute.withName('/'),
+    );
+  }
+
+  static void replaceToSportFinishedScreen(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SportFinishedScreen(),
+      ),
+    );
+  }
+
+  static void goToSportFinishedScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SportFinishedScreen(),
+      ),
+    );
+  }
+
+  static void goToEditSportScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const EditSportScreen(),
       ),
     );
   }

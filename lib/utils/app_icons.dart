@@ -23,4 +23,5 @@ class AppIcons {
   static const String icPlayBg = 'assets/icons/ic_play_bg.svg';
   static const String icPlayBgPressed = 'assets/icons/ic_play_bg_pressed.svg';
   static const String icPlayBgInactive = 'assets/icons/ic_play_bg_inactive.svg';
+  static const String icCard = 'assets/icons/ic_card.svg';
 }

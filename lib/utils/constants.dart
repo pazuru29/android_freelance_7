@@ -1,3 +1,4 @@
+//Paddings
 const double kHorizontalPadding = 20;
 
 //Shared prefs keys
@@ -50,3 +51,48 @@ const String kWorkoutListOfTime = 'workoutListOfTime';
 
 ///int
 const String kWorkoutCurrentTimer = 'workoutCurrentTimer';
+
+//Sport
+///int - 1 - 8 | Soccer - Handball
+const String kSportType = 'sportType';
+
+///Timer state: 0 - init, 1 - active, 2 - pause, 3 - finished -- int
+const String kSportMainTimerState = 'sportMainTimerState';
+
+///int
+const String kSportMainTimerTime = 'sportMainTimerTime';
+
+///double
+const String kSportMainRemainingTime = 'sportMainRemainingTime';
+
+///String
+const String kSportDateTime = 'sportDateTime';
+
+///String
+const String kSportNameTeam1 = 'sportNameTeam1';
+const String kSportNameTeam2 = 'sportNameTeam2';
+
+///int
+const String kSportScoreTeam1 = 'sportScoreTeam1';
+const String kSportScoreTeam2 = 'sportScoreTeam2';
+
+//Sport - Chess
+///Timer state: 0 - init, 1 - active, 2 - pause, 3 - finished -- int
+const String kSportSecondTimerState = 'sportSecondTimerState';
+
+///int
+const String kSportSecondTimerTime = 'sportSecondTimerTime';
+
+///double
+const String kSportSecondRemainingTime = 'sportSecondRemainingTime';
+
+//Sport - Soccer/Basketball
+const String kSportFoulsTeam1 = 'sportFoulsTeam1';
+const String kSportFoulsTeam2 = 'sportFoulsTeam2';
+
+//Sport Tennis
+const String kSportGameCountTeam1 = 'sportGameCountTeam1';
+const String kSportGameCountTeam2 = 'sportGameCountTeam2';
+
+const String kSportSetsCountTeam1 = 'sportSetsCountTeam1';
+const String kSportSetsCountTeam2 = 'sportSetsCountTeam2';

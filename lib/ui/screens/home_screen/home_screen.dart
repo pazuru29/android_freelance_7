@@ -1,5 +1,6 @@
 import 'package:android_freelance_7/controllers/app_navigator.dart';
 import 'package:android_freelance_7/controllers/simple_score_bar_controller.dart';
+import 'package:android_freelance_7/controllers/sport_controllers/sport_game_controller.dart';
 import 'package:android_freelance_7/controllers/workouts_controller.dart';
 import 'package:android_freelance_7/main.dart';
 import 'package:android_freelance_7/ui/components/app_bar/main_app_bar.dart';
@@ -26,6 +27,7 @@ class _HomeScreenState extends BaseScreenState<HomeScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) async {
     final SimpleScoreBarController simpleScoreBarController = Get.find();
     final WorkoutsController workoutsController = Get.find();
+    final SportGameController sportGameController = Get.find();
 
     if (state == AppLifecycleState.paused) {
       await SharedPreferences.getInstance().then((value) {
@@ -40,6 +42,12 @@ class _HomeScreenState extends BaseScreenState<HomeScreen>
         if (isWorkoutActive == true) {
           workoutsController.saveDataWhenOutFromApp();
           debugPrint('SAVE WORKOUT DATA');
+        }
+        //Sport
+        bool? isSportActive = value.getBool(kSportScoreBarActive);
+        if (isSportActive == true) {
+          sportGameController.saveDataWhenOutFromApp();
+          debugPrint('SAVE SPORT DATA');
         }
       });
       debugPrint('PAUSED');
@@ -58,6 +66,12 @@ class _HomeScreenState extends BaseScreenState<HomeScreen>
         if (isWorkoutActive == true) {
           workoutsController.checkAfterOut();
           debugPrint('CHECK WORKOUT DATA');
+        }
+        //Sport
+        bool? isSportActive = value.getBool(kSportScoreBarActive);
+        if (isSportActive == true) {
+          sportGameController.checkAfterOut();
+          debugPrint('CHECK SPORT DATA');
         }
       });
       debugPrint('RESUMED');
@@ -102,8 +116,20 @@ class _HomeScreenState extends BaseScreenState<HomeScreen>
                     paddings: const EdgeInsets.fromLTRB(29, 36, 29, 28),
                     assetName: AppIcons.icFootball,
                     title: 'Sport Scoreboard',
-                    onPressed: () {
-                      AppNavigator.goToSportTypesScreen(context);
+                    onPressed: () async {
+                      await SharedPreferences.getInstance().then((value) {
+                        bool? isActive = value.getBool(kSportScoreBarActive);
+                        final SportGameController sportGameController =
+                            Get.find();
+                        if (isActive == true &&
+                            sportGameController.timerState == 3) {
+                          AppNavigator.goToSportFinishedScreen(context);
+                        } else if (isActive == true) {
+                          AppNavigator.goToSportGameScreen(context);
+                        } else {
+                          AppNavigator.goToSportTypesScreen(context);
+                        }
+                      });
                     },
                   ),
                 ),

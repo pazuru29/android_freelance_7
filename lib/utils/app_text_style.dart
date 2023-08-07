@@ -20,6 +20,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
+  static const AppStyle headerMedium = AppStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+  );
+
   //Body
   static const AppStyle bold1 = AppStyle(
     fontSize: 22,

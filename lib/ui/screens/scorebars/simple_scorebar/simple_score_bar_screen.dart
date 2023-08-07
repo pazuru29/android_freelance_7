@@ -279,7 +279,15 @@ class _SimpleScoreBarScreenState extends BaseScreenState<SimpleScoreBarScreen> {
                   inactiveChildColor: Colors.white,
                   pressedChildColor: Colors.white,
                   borderRadius: BorderRadius.circular(100),
-                  onPressed: _simpleScoreBarController.timerState == 1
+                  onPressed: _simpleScoreBarController.timerState == 1 &&
+                          ((numberOfTeam == 1 &&
+                                  _simpleScoreBarController.scoreTeam1 > 0) ||
+                              (numberOfTeam == 2 &&
+                                  _simpleScoreBarController.scoreTeam2 > 0) ||
+                              (numberOfTeam == 3 &&
+                                  _simpleScoreBarController.scoreTeam3 > 0) ||
+                              (numberOfTeam == 4 &&
+                                  _simpleScoreBarController.scoreTeam4 > 0))
                       ? () {
                           _simpleScoreBarController
                               .decrementScore(numberOfTeam);
@@ -331,7 +339,15 @@ class _SimpleScoreBarScreenState extends BaseScreenState<SimpleScoreBarScreen> {
                   inactiveChildColor: Colors.white,
                   pressedChildColor: Colors.white,
                   borderRadius: BorderRadius.circular(100),
-                  onPressed: _simpleScoreBarController.timerState == 1
+                  onPressed: _simpleScoreBarController.timerState == 1 &&
+                          ((numberOfTeam == 1 &&
+                                  _simpleScoreBarController.scoreTeam1 > 0) ||
+                              (numberOfTeam == 2 &&
+                                  _simpleScoreBarController.scoreTeam2 > 0) ||
+                              (numberOfTeam == 3 &&
+                                  _simpleScoreBarController.scoreTeam3 > 0) ||
+                              (numberOfTeam == 4 &&
+                                  _simpleScoreBarController.scoreTeam4 > 0))
                       ? () {
                           _simpleScoreBarController
                               .decrementScore(numberOfTeam);

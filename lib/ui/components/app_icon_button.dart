@@ -4,11 +4,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class AppIconButton extends StatefulWidget {
   final String assetName;
-  final VoidCallback onPressed;
+  final Color color, pressedColor, inactiveColor;
+  final VoidCallback? onPressed;
 
   const AppIconButton({
     required this.assetName,
-    required this.onPressed,
+    this.onPressed,
+    this.color = AppColors.textPrimary,
+    this.pressedColor = AppColors.layer3,
+    this.inactiveColor = AppColors.layer3,
     super.key,
   });
 
@@ -26,9 +30,11 @@ class _AppIconButtonState extends State<AppIconButton> {
   }
 
   Color _getMainColor() {
-    Color color = AppColors.textPrimary;
-    if (_isHighlighted) {
-      color = AppColors.textPrimary.withOpacity(0.5);
+    Color color = widget.color;
+    if (widget.onPressed == null) {
+      color = widget.inactiveColor;
+    } else if (_isHighlighted) {
+      color = widget.pressedColor;
     }
 
     return color;
