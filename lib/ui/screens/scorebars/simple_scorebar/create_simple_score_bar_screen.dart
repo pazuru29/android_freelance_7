@@ -71,6 +71,7 @@ class _CreateSimpleScoreBarScreenState
                     }
                   : null,
             ),
+            Gap(MediaQuery.of(context).padding.bottom + 16),
           ],
         ),
       ),

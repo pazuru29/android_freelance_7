@@ -64,6 +64,7 @@ class _FinishedSimpleScoreBarScreenState
               _simpleScoreBarController.deleteSaveData(context);
             },
           ),
+          Gap(MediaQuery.of(context).padding.bottom + 16),
         ],
       ),
     );

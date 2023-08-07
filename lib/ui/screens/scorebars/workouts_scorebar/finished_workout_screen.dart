@@ -94,6 +94,7 @@ class _FinishedWorkoutScreenState
               AppNavigator.goBack(context);
             },
           ),
+          Gap(MediaQuery.of(context).padding.bottom + 16),
         ],
       ),
     );

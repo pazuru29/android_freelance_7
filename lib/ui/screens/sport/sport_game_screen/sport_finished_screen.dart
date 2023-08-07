@@ -65,7 +65,7 @@ class _SportFinishedScreenState extends BaseScreenState<SportFinishedScreen> {
               _sportGameController.deleteData(context);
             },
           ),
-          const Gap(16),
+          Gap(MediaQuery.of(context).padding.bottom + 16),
         ],
       ),
     );

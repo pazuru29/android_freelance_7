@@ -73,6 +73,7 @@ class _EditSimpleScoreBarScreenState extends BaseScreenState<EditSportScreen> {
                     }
                   : null,
             ),
+            Gap(MediaQuery.of(context).padding.bottom + 16),
           ],
         ),
       ),

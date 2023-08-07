@@ -73,6 +73,7 @@ class _EditSimpleScoreBarScreenState
                     }
                   : null,
             ),
+            Gap(MediaQuery.of(context).padding.bottom + 16),
           ],
         ),
       ),
