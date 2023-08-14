@@ -56,7 +56,7 @@ class AppTextStyles {
 
   static const AppStyle captionMedium = AppStyle(
     fontSize: 14,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     letterSpacing: -0.0037,
   );
 

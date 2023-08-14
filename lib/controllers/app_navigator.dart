@@ -1,4 +1,5 @@
 import 'package:android_freelance_7/ui/screens/history_screen/history_screen.dart';
+import 'package:android_freelance_7/ui/screens/privacy_policy/privacy_policy_screen.dart';
 import 'package:android_freelance_7/ui/screens/scorebars/simple_scorebar/create_simple_score_bar_screen.dart';
 import 'package:android_freelance_7/ui/screens/scorebars/simple_scorebar/edit_simple_scorebar_screen.dart';
 import 'package:android_freelance_7/ui/screens/scorebars/simple_scorebar/finished_simple_score_bar_screen.dart';
@@ -196,6 +197,15 @@ class AppNavigator {
       context,
       MaterialPageRoute(
         builder: (context) => const EditSportScreen(),
+      ),
+    );
+  }
+
+  static void goToPrivacyPolicyScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const PrivacyPolicyScreen(),
       ),
     );
   }

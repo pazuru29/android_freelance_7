@@ -30,9 +30,11 @@ class _FinishedSimpleScoreBarScreenState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Gap(96),
-          const AppText(
-            text: 'Finished competition',
-            style: AppTextStyles.headerSemibold,
+          const FittedBox(
+            child: AppText(
+              text: 'Finished competition',
+              style: AppTextStyles.headerSemibold,
+            ),
           ),
           const Gap(24),
           _textContainer(AppStrings.time,
@@ -64,7 +66,7 @@ class _FinishedSimpleScoreBarScreenState
               _simpleScoreBarController.deleteSaveData(context);
             },
           ),
-          Gap(MediaQuery.of(context).padding.bottom + 16),
+          const Gap(16),
         ],
       ),
     );

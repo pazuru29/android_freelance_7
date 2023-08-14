@@ -52,7 +52,12 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
               },
             ),
           ),
-          Expanded(child: _body()),
+          Expanded(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: _body(),
+            ),
+          ),
         ],
       ),
     );
@@ -63,52 +68,68 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-            child: Column(
-              children: [
-                const Spacer(),
-                if (_sportGameController.sportType == 7)
-                  _chessTimerWidget(
-                    '${((_sportGameController.mainTimeOfMatch - _sportGameController.currentTime) ~/ 60).toString().padLeft(2, '0')}:${((_sportGameController.mainTimeOfMatch - _sportGameController.currentTime) % 60).toInt().toString().padLeft(2, '0')}',
-                    AppColors.accentPrimary1,
-                    _sportGameController.timerState == 1,
-                    1,
-                  ),
-                if (_sportGameController.sportType != 7)
-                  _horizontalScoreWidget(
-                      AppColors.accentPrimary1,
-                      false,
-                      _sportGameController.nameTeam1.value,
-                      1,
-                      _sportGameController.scoreTeam1),
-                if (_sportGameController.sportType == 2 ||
-                    _sportGameController.sportType == 3)
-                  _addMoreScoreWidget(AppColors.accentPrimary1,
-                      _sportGameController.sportType == 3, 1),
-                const Spacer(),
-                _controllerWidget(),
-                const Spacer(),
-                if (_sportGameController.sportType == 2 ||
-                    _sportGameController.sportType == 3)
-                  _addMoreScoreWidget(AppColors.accentSecondary1,
-                      _sportGameController.sportType == 3, 2),
-                if (_sportGameController.sportType == 7)
-                  _chessTimerWidget(
-                    '${((_sportGameController.secondTimeOfMatch - _sportGameController.secondCurrentTime) ~/ 60).toString().padLeft(2, '0')}:${((_sportGameController.secondTimeOfMatch - _sportGameController.secondCurrentTime) % 60).toInt().toString().padLeft(2, '0')}',
-                    AppColors.accentSecondary1,
-                    _sportGameController.secondTimerState == 1,
-                    2,
-                  ),
-                if (_sportGameController.sportType != 7)
-                  _horizontalScoreWidget(
-                      AppColors.accentSecondary1,
-                      true,
-                      _sportGameController.nameTeam2.value,
-                      2,
-                      _sportGameController.scoreTeam2),
-                const Spacer(),
-              ],
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+              child: Column(
+                children: [
+                  const Gap(8),
+                  if (_sportGameController.sportType == 7)
+                    Expanded(
+                      child: _chessTimerWidget(
+                        '${((_sportGameController.mainTimeOfMatch - _sportGameController.currentTime) ~/ 60).toString().padLeft(2, '0')}:${((_sportGameController.mainTimeOfMatch - _sportGameController.currentTime) % 60).toInt().toString().padLeft(2, '0')}',
+                        AppColors.accentPrimary1,
+                        _sportGameController.timerState == 1,
+                        1,
+                      ),
+                    ),
+                  if (_sportGameController.sportType != 7)
+                    Expanded(
+                      child: FittedBox(
+                        child: _horizontalScoreWidget(
+                            AppColors.accentPrimary1,
+                            false,
+                            _sportGameController.nameTeam1.value,
+                            1,
+                            _sportGameController.scoreTeam1),
+                      ),
+                    ),
+                  if (_sportGameController.sportType == 2 ||
+                      _sportGameController.sportType == 3)
+                    _addMoreScoreWidget(AppColors.accentPrimary1,
+                        _sportGameController.sportType == 3, 1),
+                  const Gap(16),
+                  _controllerWidget(),
+                  const Gap(16),
+                  if (_sportGameController.sportType == 2 ||
+                      _sportGameController.sportType == 3)
+                    _addMoreScoreWidget(AppColors.accentSecondary1,
+                        _sportGameController.sportType == 3, 2),
+                  if (_sportGameController.sportType == 7)
+                    Expanded(
+                      child: _chessTimerWidget(
+                        '${((_sportGameController.secondTimeOfMatch - _sportGameController.secondCurrentTime) ~/ 60).toString().padLeft(2, '0')}:${((_sportGameController.secondTimeOfMatch - _sportGameController.secondCurrentTime) % 60).toInt().toString().padLeft(2, '0')}',
+                        AppColors.accentSecondary1,
+                        _sportGameController.secondTimerState == 1,
+                        2,
+                      ),
+                    ),
+                  if (_sportGameController.sportType != 7)
+                    Expanded(
+                      child: FittedBox(
+                        child: _horizontalScoreWidget(
+                            AppColors.accentSecondary1,
+                            true,
+                            _sportGameController.nameTeam2.value,
+                            2,
+                            _sportGameController.scoreTeam2),
+                      ),
+                    ),
+                  const Gap(8),
+                ],
+              ),
             ),
           ),
         ),
@@ -291,7 +312,7 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
     if (_sportGameController.sportType == 4) {
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 30),
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 45),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 32),
         decoration: BoxDecoration(
           color: AppColors.layer1,
           borderRadius: BorderRadius.circular(30),
@@ -306,30 +327,42 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: AppColors.layer2,
-              ),
-              child: const AppText(
-                text: '1',
-                style: AppTextStyles.headerSemibold,
+            Expanded(
+              child: FittedBox(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: AppColors.layer2,
+                  ),
+                  child: const AppText(
+                    text: '1',
+                    style: AppTextStyles.headerSemibold,
+                  ),
+                ),
               ),
             ),
+            const Gap(16),
             const AppText(
               text: 'vs.',
               style: AppTextStyles.headerSemibold,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: AppColors.layer2,
-              ),
-              child: const AppText(
-                text: '2',
-                style: AppTextStyles.headerSemibold,
+            const Gap(16),
+            Expanded(
+              child: FittedBox(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: AppColors.layer2,
+                  ),
+                  child: const AppText(
+                    text: '2',
+                    style: AppTextStyles.headerSemibold,
+                  ),
+                ),
               ),
             ),
           ],
@@ -365,6 +398,7 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
               }
             },
           ),
+          const Gap(8),
           Container(
             width: MediaQuery.of(context).size.width / 3,
             height: 60,
@@ -383,6 +417,7 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
               ),
             ),
           ),
+          const Gap(8),
           AppIconButton(
             assetName: AppIcons.icEdit,
             onPressed: () {

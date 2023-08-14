@@ -35,7 +35,7 @@ class _NumberOfPlayersPickerState extends State<NumberOfPlayersPicker> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height / 4 +
-          MediaQuery.of(context).padding.bottom,
+          MediaQuery.of(context).padding.bottom + 34,
       decoration: const BoxDecoration(
         color: AppColors.layer1,
         borderRadius: BorderRadius.only(

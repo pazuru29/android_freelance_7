@@ -102,7 +102,7 @@ class _CreateWorkoutsScreenState extends BaseScreenState<CreateWorkoutsScreen> {
                   });
                 },
               ),
-              Gap(MediaQuery.of(context).padding.bottom + 16),
+              const Gap(16),
             ],
           ),
         ),

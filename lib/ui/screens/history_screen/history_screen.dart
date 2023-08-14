@@ -23,7 +23,7 @@ class _HistoryScreenState extends BaseScreenState<HistoryScreen> {
 
   @override
   void initState() {
-    _historyController = Get.put(HistoryController());
+    _historyController = Get.find();
     _historyController.getData();
     super.initState();
   }

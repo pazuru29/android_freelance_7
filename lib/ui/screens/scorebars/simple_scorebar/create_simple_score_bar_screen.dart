@@ -57,6 +57,7 @@ class _CreateSimpleScoreBarScreenState
                         const Gap(16),
                         _getPickerWidget(),
                         _getTeamName(),
+                        const Gap(16),
                       ],
                     ),
                   ),

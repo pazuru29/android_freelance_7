@@ -59,8 +59,7 @@ class _SportTypeCardState extends State<SportTypeCard> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 48),
+              Expanded(
                 child: Image.asset(widget.assetName),
               ),
               AppText(

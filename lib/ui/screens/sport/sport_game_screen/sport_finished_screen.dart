@@ -28,9 +28,11 @@ class _SportFinishedScreenState extends BaseScreenState<SportFinishedScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Gap(96),
-          const AppText(
-            text: 'Finished competition',
-            style: AppTextStyles.headerSemibold,
+          const FittedBox(
+            child: AppText(
+              text: 'Finished competition',
+              style: AppTextStyles.headerSemibold,
+            ),
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -55,6 +57,7 @@ class _SportFinishedScreenState extends BaseScreenState<SportFinishedScreen> {
                           _gamesSetsWidget(),
                       ],
                     ),
+                  const Gap(16),
                 ],
               ),
             ),
@@ -65,7 +68,7 @@ class _SportFinishedScreenState extends BaseScreenState<SportFinishedScreen> {
               _sportGameController.deleteData(context);
             },
           ),
-          Gap(MediaQuery.of(context).padding.bottom + 16),
+          const Gap(16),
         ],
       ),
     );

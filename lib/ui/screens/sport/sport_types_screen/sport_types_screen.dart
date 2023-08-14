@@ -54,6 +54,7 @@ class _SportTypesScreenState extends BaseScreenState<SportTypesScreen> {
               },
             ),
           ),
+          Gap(MediaQuery.of(context).padding.bottom + 16),
         ],
       ),
     );

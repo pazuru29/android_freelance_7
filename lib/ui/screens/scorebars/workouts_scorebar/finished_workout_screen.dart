@@ -33,9 +33,11 @@ class _FinishedWorkoutScreenState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Gap(96),
-          const AppText(
-            text: 'Finished workout',
-            style: AppTextStyles.headerSemibold,
+          const FittedBox(
+            child: AppText(
+              text: 'Finished workout',
+              style: AppTextStyles.headerSemibold,
+            ),
           ),
           const Gap(24),
           _textContainer(AppStrings.time,
@@ -94,7 +96,7 @@ class _FinishedWorkoutScreenState
               AppNavigator.goBack(context);
             },
           ),
-          Gap(MediaQuery.of(context).padding.bottom + 16),
+          const Gap(16),
         ],
       ),
     );

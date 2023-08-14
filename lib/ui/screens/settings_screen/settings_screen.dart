@@ -22,8 +22,6 @@ class SettingsScreen extends BaseScreen {
 class _SettingsScreenState extends BaseScreenState<SettingsScreen> {
   final HistoryController _historyController = Get.find();
 
-  bool nightMod = false;
-
   @override
   Widget buildMain(BuildContext context) {
     return Padding(
@@ -38,7 +36,9 @@ class _SettingsScreenState extends BaseScreenState<SettingsScreen> {
           SettingsButton(
             assetName: AppIcons.icShield,
             title: 'Privacy Policy',
-            onPressed: () {},
+            onPressed: () {
+              AppNavigator.goToPrivacyPolicyScreen(context);
+            },
           ),
           Container(
             height: 1,

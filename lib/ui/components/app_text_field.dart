@@ -63,7 +63,7 @@ class AppTextField extends StatelessWidget {
               textInputAction: textInputAction,
               autofocus: autoFocus,
               cursorColor: AppColors.textPrimary,
-              cursorHeight: 18,
+              // cursorHeight: 18,
               style: TextStyle(
                 fontSize: style.fontSize,
                 fontWeight: style.fontWeight,

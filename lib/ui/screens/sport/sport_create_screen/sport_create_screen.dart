@@ -41,11 +41,23 @@ class _SportCreateScreenState extends BaseScreenState<SportCreateScreen> {
             SecondaryAppBar(
               title: _getTitle(_sportCreateController.sportType),
             ),
-            if (_sportCreateController.sportType != 4 &&
-                _sportCreateController.sportType != 6)
-              _getPickerWidget(),
-            _getTeamName(),
-            const Spacer(),
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Column(
+                      children: [
+                        if (_sportCreateController.sportType != 4 &&
+                            _sportCreateController.sportType != 6)
+                          _getPickerWidget(),
+                        _getTeamName(),
+                        const Gap(16),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
             AppButton(
               title: AppStrings.btnContinue,
               onPressed: _sportCreateController.timeOfMatch > 0 ||

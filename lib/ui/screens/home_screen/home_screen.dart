@@ -188,6 +188,7 @@ class _HomeScreenState extends BaseScreenState<HomeScreen>
                 AppNavigator.goToHistoryScreen(context);
               },
             ),
+            const Gap(16),
           ],
         ),
       ),

@@ -203,6 +203,7 @@ class _SimpleScoreBarScreenState extends BaseScreenState<SimpleScoreBarScreen> {
               }
             },
           ),
+          const Gap(8),
           Container(
             width: MediaQuery.of(context).size.width / 3,
             height: 60,
@@ -221,6 +222,7 @@ class _SimpleScoreBarScreenState extends BaseScreenState<SimpleScoreBarScreen> {
               ),
             ),
           ),
+          const Gap(8),
           AppIconButton(
             assetName: AppIcons.icEdit,
             onPressed: () {
