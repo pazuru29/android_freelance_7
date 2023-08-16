@@ -501,6 +501,7 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
   Widget _chessTimerWidget(
       String time, Color bgColor, bool isPressedActive, int numberOfTeam) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
           height: 110,
