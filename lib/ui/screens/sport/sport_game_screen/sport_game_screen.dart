@@ -539,11 +539,15 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
       child: Column(
         children: [
           if (!isSecond)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: AppText(
-                text: nameTeam,
-                style: AppTextStyles.bodySemibold,
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: AppText(
+                  text: nameTeam,
+                  style: AppTextStyles.bodySemibold,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           SizedBox(
@@ -620,12 +624,15 @@ class _SportGameScreenState extends BaseScreenState<SportGameScreen> {
             ),
           ),
           if (isSecond)
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: AppText(
-                text: nameTeam,
-                style: AppTextStyles.bodySemibold,
-                overflow: TextOverflow.ellipsis,
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: AppText(
+                  text: nameTeam,
+                  style: AppTextStyles.bodySemibold,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
         ],

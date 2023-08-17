@@ -82,10 +82,14 @@ class _FinishedSimpleScoreBarScreenState
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppText(
-            text: title,
-            style: AppTextStyles.bodyRegular,
+          Expanded(
+            child: AppText(
+              text: title,
+              style: AppTextStyles.bodyRegular,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
+          const Gap(8),
           AppText(
             text: subTitle,
             style: AppTextStyles.bodyRegular,
